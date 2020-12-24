@@ -3,13 +3,16 @@
     --primaryColor: #2F80ED;
     --mainTextColor: #585978;
     --textColor-alt: #323450;
+    --BackgroundColor: #f3f3f3;
+    --BackgroundColor-alt: #EAEAEA;
     --whiteColor: #fff;
     --blackColor: #000;
+    --lightBlueColor: rgba(47, 128, 237, 0.2);
     --lineHeight: 1.5;
     --letterSpacing: 0.1rem;
     --mainFontFamily: 'Heebo', sans-serif;
     --secondaryFontFamily: 'Fira Sans', sans-serif;
-    --mainTransition: all 0.5s ease;
+    --mainTransition: all 1s ease-in-out;
 }
 
 /* General Rules */
@@ -28,6 +31,7 @@ html {
 body {
     font-size: 1.6rem;
     font-weight: normal;
+    line-height: var(--lineHieght);
     font-family: var(--mainFontFamily);
     color: var(--mainTextColor);
 }
@@ -36,10 +40,40 @@ a {
     text-decoration: none;
 }
 
+h2 {
+    font-size: 4rem;
+    font-family: var(--mainFontFamily);
+    color: var(--textColor-alt);
+}
+
+h3 {
+    font-size: 3rem;
+    font-family: var(--secondaryFontFamily);
+    color: var(--textColor-alt);
+}
+
+h4 {
+    font-size: 2rem;
+    font-family: var(--secondaryFontFamily);
+    color: var(--textColor);
+    text-transform: capitalize;
+}
+
 ul {
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+section {
+    padding: 8rem 0;
+}
+
+/* Start Helper */
+.container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
 .btn {
@@ -55,12 +89,13 @@ ul {
     letter-spacing: var(--letterSpacing);
     position: relative;
     z-index: 0;
+    overflow: hidden;
 }
 
 .btn::before {
     content: '';
     position: absolute;
-    transform: translate(0, -50%) scale(0.5);
+    transform: scale(0);
     transform-origin: center;
     width: 20rem;
     height: 20rem;
@@ -70,7 +105,12 @@ ul {
     transition: var(--mainTransition);
 }
 
-
+.btn:hover::before {
+    transform: scale(1);
+    width: 50rem;
+    height: 50rem;
+    border-radius: 0;
+}
 
 .btn-large {
     width: 16rem;
@@ -87,11 +127,18 @@ ul {
     border-radius: 10px;
 }
 
-/* Start Helper */
-.container {
-    width: 100%;
+.section-heading {
+    width: 60%;
     margin: 0 auto;
-    max-width: 1200px;
+    text-align: center;
+}
+
+.section-heading-left {
+    width: 40%;
+}
+
+.section-title {
+    margin-bottom: 3rem;
 }
 
 /* End Helper */
@@ -147,6 +194,23 @@ ul {
 /* End Header */
 
 /* Start Hero */
+.home {
+    position: relative;
+    margin-top: 2rem;
+    height: 900px;
+
+}
+
+.home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 900px;
+    background: var(--lightBlueColor);
+}
+
 .hero-content {
     display: flex;
     align-items: center;
@@ -155,6 +219,8 @@ ul {
 
 .hero-text {
     flex: 0 0 50%;
+    align-self: center;
+    margin-right: 2rem;
 }
 
 .hero-subtitle {
@@ -179,4 +245,117 @@ ul {
     margin-top: 2.5rem;
 }
 
+.hero-image-wrapper {
+    position: relative;
+}
+
+.hero-img {
+    margin-top: 10rem;
+    display: block;
+    width: 100%;
+}
+
+.hero-img-pattern {
+    position: absolute;
+    left: -8rem;
+}
+
 /* End Hero */
+
+/* Start Services */
+.services {
+    position: relative;
+}
+
+.services-content {
+    margin-top: 6rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.services-items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex: 0 0 60%;
+    margin-right: 2rem;
+}
+
+.service {
+    margin-top: 3rem;
+    flex: 0 0 calc(100% / 2 - 3rem);
+}
+
+.service-icon {
+    background: var(--primaryColor);
+    width: 8rem;
+    height: 8rem;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ser-icon {
+    font-size: 4rem;
+    color: var(--whiteColor);
+}
+
+.service-title {
+    margin: 2rem 0;
+    text-transform: capitalize;
+    font-size: 2.4rem;
+    color: var(--textColor-alt);
+}
+
+.services-image {
+    position: absolute;
+    right: 0;
+    bottom: -7px;
+}
+
+/* End Services */
+
+/* Start About */
+.about {
+    background: var(--BackgroundColor);
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.about-text {
+    flex: 0 0 45%;
+}
+
+
+.about-counter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--BackgroundColor-alt);
+    text-align: center;
+    padding: 2rem;
+    margin: 3rem 0 3rem;
+
+}
+
+.counter {
+    flex: 0 0 calc(100% / 3);
+    padding: 1rem;
+    border-right: 1px solid #000;
+}
+
+.counter:last-child {
+    border: none;
+}
+
+.counter-info {
+    margin-top: 1.5rem;
+
+}
+
+/* End About */
